@@ -1,9 +1,5 @@
 
 let dragged;
-let offset = {
-  x: 0,
-  y: 0,
-}
 
 export default function Nested() {
   // 元素拖动中触发
@@ -12,10 +8,6 @@ export default function Nested() {
   }
   // 拖动开始触发
   const onDragStart = (e) => {
-    const {x, y} = e.target.getBoundingClientRect();
-    offset.x = e.clientX - x;
-    offset.y = e.clientY - y;
-
     dragged = e.target;
     e.target.style.opacity = 0.5;
   }

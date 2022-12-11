@@ -73,6 +73,7 @@ function getAligned(targetId, targetRect) {
     console.log('crossXMap: ', containId, crossXMap);
 
     function combinedTogether(id) {
+      console.log('id: ', id);
       // x轴方向元素有交叉
       // 创建一个元素包含交叉的两个元素
       const boxEle = document.createElement('div');
@@ -102,6 +103,7 @@ function getAligned(targetId, targetRect) {
     Object.entries(crossXMap).forEach(([id, distance]) => {
       if (distance > maxDistance) {
         maxId = id;
+        maxDistance = distance;
       }
     });
     combinedTogether(maxId);
@@ -118,7 +120,7 @@ function getAligned(targetId, targetRect) {
       left: targetRect.left,
       node: targetNode,
     }];
-    
+
     const parentNode = targetNode.parentNode;
     parentNode.childNodes.forEach((node) => {
       if (node === targetNode) {
@@ -193,6 +195,20 @@ export default function Rect() {
         onDragStart={onDragStart}
         className="item item2"
         id="positionChild3"
+      ></div>
+      <div
+        draggable="true"
+        onDragEnd={onDragEnd}
+        onDragStart={onDragStart}
+        className="item item3"
+        id="positionChild4"
+      ></div>
+      <div
+        draggable="true"
+        onDragEnd={onDragEnd}
+        onDragStart={onDragStart}
+        className="item item4"
+        id="positionChild5"
       ></div>
     </div>
   );

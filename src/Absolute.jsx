@@ -1,5 +1,4 @@
 
-let dragged;
 let offset = {
   x: 0,
   y: 0,
@@ -12,7 +11,6 @@ export default function Nested() {
     offset.x = e.clientX - x;
     offset.y = e.clientY - y;
 
-    dragged = e.target;
     e.target.style.opacity = 0.5;
   }
   // 拖动结束触发
@@ -23,7 +21,7 @@ export default function Nested() {
     const {left, top} = document.querySelector('#absolute').getBoundingClientRect();
     const x = e.clientX - offset.x - left;
     const y = e.clientY - offset.y - top;
-    debugger;
+    
     e.target.style.left = `${x}px`;
     e.target.style.top = `${y}px`;
   }
