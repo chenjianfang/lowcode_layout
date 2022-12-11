@@ -116,11 +116,12 @@ function getAligned(targetId, targetRect) {
     if (!targetNode.parentNode.dataset.level) {
       return;
     }
+    // drag节点
     const list = [{
       left: targetRect.left,
       node: targetNode,
     }];
-
+    // 获取所有节点的的clientX
     const parentNode = targetNode.parentNode;
     parentNode.childNodes.forEach((node) => {
       if (node === targetNode) {
@@ -132,7 +133,9 @@ function getAligned(targetId, targetRect) {
         node
       });
     });
+    // 升序
     list.sort((a, b) => a.left - b.left);
+    // 插入
     parentNode.innerHTML = '';
     list.forEach(({node}) => {
       parentNode.appendChild(node);
