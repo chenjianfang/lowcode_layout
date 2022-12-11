@@ -18,11 +18,27 @@ div{
 .item{
   width: 100px;
   height: 100px;
-  /* margin: 20px; */
+  margin: 20px;
 }
 .item1{
   border: 1px solid blue;
 }
 .item2{
   border: 1px solid #000;
+}
+
+
+
+/* 上下左右定位 */
+.positionBox{
+  div{
+    display: flex;
+  }
+}
+
+// 任意移动
+#absolute{
+  div{
+    margin: 0;
+  }
 }

@@ -1,20 +1,29 @@
 
-import style from './style.css';
 let dragged;
+let offset = {
+  x: 0,
+  y: 0,
+}
 
-function App() {
+export default function Nested() {
   // 元素拖动中触发
   const onDrag = (e) => {
 
   }
   // 拖动开始触发
   const onDragStart = (e) => {
+    const {x, y} = e.target.getBoundingClientRect();
+    offset.x = e.clientX - x;
+    offset.y = e.clientY - y;
+
     dragged = e.target;
     e.target.style.opacity = 0.5;
   }
   // 拖动结束触发
   const onDragEnd = (e) => {
     e.target.style.opacity = "";
+    
+    console.log(e);
   }
   // 拖动的元素进入有效的放置目标
   const onDragEnter = (e) => {
@@ -58,6 +67,7 @@ function App() {
       onDrop={onDrop}
       className="App"
     >
+      嵌套
       <div
         draggable="true"
         onDrag={onDrag}
@@ -92,5 +102,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
